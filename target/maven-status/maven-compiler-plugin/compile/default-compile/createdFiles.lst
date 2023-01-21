@@ -1,0 +1,5 @@
+com\yourcart\config\SecurityConfig.class
+com\yourcart\config\SecurityWebAppInitializer.class
+com\yourcart\controllers\DummyController.class
+com\yourcart\config\AppConfig.class
+com\yourcart\config\SpringMvcDispatchInitializer.class
