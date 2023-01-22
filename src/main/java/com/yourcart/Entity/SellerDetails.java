@@ -12,7 +12,7 @@ public class SellerDetails extends IdGeneratorClass {
 
     private int sellerId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany()
     private Product product;
 
 }

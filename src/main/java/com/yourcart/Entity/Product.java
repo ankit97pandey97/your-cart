@@ -11,20 +11,43 @@ public class Product extends IdGeneratorClass{
     private String productName;
 
     @Column(name = "category")
-    private String category;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @OneToOne()
     @JoinColumn(name = "product_code")
     private ProductDetails productDetails;
 
 
-    @OneToMany(mappedBy = "product")
-    public List<SellerDetails>  sellers;
 
+  @OneToOne
+  @JoinColumn(name = "product_id")
+    public SellerDetails  sellers;
 
-    public String getCategory() {
+    public SellerDetails getSellers() {
+        return sellers;
+    }
+
+    public void setSellers(SellerDetails sellers) {
+        this.sellers = sellers;
+    }
+
+    public Category getCategory() {
         return category;
     }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public ProductDetails getProductDetails() {
+        return productDetails;
+    }
+
+    public void setProductDetails(ProductDetails productDetails) {
+        this.productDetails = productDetails;
+    }
+
 
     public String getProductName() {
         return productName;
@@ -34,7 +57,4 @@ public class Product extends IdGeneratorClass{
         this.productName = productName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

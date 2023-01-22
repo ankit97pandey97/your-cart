@@ -12,7 +12,8 @@ public class ProductDetails extends IdGeneratorClass {
     @Column(name = "product_code")
     private String productCode;
 
-
+    @OneToOne()
+    @J
 
     public String getProductCode() {
         return productCode;

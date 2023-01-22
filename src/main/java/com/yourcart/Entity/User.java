@@ -23,6 +23,10 @@ public class User extends IdGeneratorClass{
     @Column(name = "pass_word")
     private String password;
 
+    @OneToOne()
+    @JoinColumn(name = "role_id")
+    private Roles role;
+
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "userdetail_id")
@@ -69,29 +73,31 @@ public class User extends IdGeneratorClass{
         this.userDetails = userDetails;
     }
 
-    public User(String userName, String firstName, String lastName, String password) {
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public User(String userName, String firstName, String lastName, String password, Roles role, UserDetails userDetails) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.role = role;
+        this.userDetails = userDetails;
     }
 
-    public User(int id, String userName, String firstName, String lastName, String password) {
+    public User(Integer id,String userName, String firstName, String lastName, String password, Roles role, UserDetails userDetails) {
         this.setId(id);
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.role = role;
+        this.userDetails = userDetails;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + this.getId() +
-                ", userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
