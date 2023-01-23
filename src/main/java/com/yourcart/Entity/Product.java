@@ -5,12 +5,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "product")
-public class Product extends IdGeneratorClass{
+public class Product extends IdGeneratorClass {
 
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "category")
+    @OneToOne()
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -18,11 +18,9 @@ public class Product extends IdGeneratorClass{
     @JoinColumn(name = "product_code")
     private ProductDetails productDetails;
 
-
-
-  @OneToOne
-  @JoinColumn(name = "product_id")
-    public SellerDetails  sellers;
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    public SellerDetails sellers;
 
     public SellerDetails getSellers() {
         return sellers;

@@ -3,16 +3,22 @@ package com.yourcart.Entity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @CrossOrigin
 @Table(name = "sellerDetails")
 public class SellerDetails extends IdGeneratorClass {
 
-    private int sellerId;
+    //find name and other details of seller through user table
 
-    @OneToMany()
-    private Product product;
+   @JoinColumn(name = "seller_rating")
+   private int sellerRating;
 
+    public int getSellerRating() {
+        return sellerRating;
+    }
+
+    public void setSellerRating(int sellerRating) {
+        this.sellerRating = sellerRating;
+    }
 }
