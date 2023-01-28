@@ -22,4 +22,11 @@ public class ProductDetails extends IdGeneratorClass {
         this.productCode = productCode;
     }
 
+    public SellerDetails getSellerDetails() {
+        return sellerDetails;
+    }
+
+    public void setSellerDetails(SellerDetails sellerDetails) {
+        this.sellerDetails = sellerDetails;
+    }
 }

@@ -20,11 +20,22 @@ public class UserDetails extends IdGeneratorClass{
     @Column(name = "state")
     private String state;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Column(name = "pincode")
     private String pinCode;
 
     @Column(name = "country")
     private String country;
+
+    @OneToOne(mappedBy = "userDetails")
+    private User user;
 
 
     public String getStreet() {

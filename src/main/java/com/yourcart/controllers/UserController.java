@@ -18,7 +18,6 @@ public class UserController {
 
     @GetMapping("/all")
     public List<RestUser> getAllUsers(){
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return userService.getAllUsers();
     }
     @GetMapping("/{id}")
@@ -33,7 +32,6 @@ public class UserController {
 
     @PostMapping("/user")
     public void addUser(@RequestBody RestUser tempUser){
-        System.out.println("=========================");
             userService.postUser(tempUser);
     }
 

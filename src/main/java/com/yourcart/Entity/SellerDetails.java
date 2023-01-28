@@ -11,8 +11,18 @@ public class SellerDetails extends IdGeneratorClass {
 
     //find name and other details of seller through user table
 
-   @JoinColumn(name = "seller_rating")
    private int sellerRating;
+
+   @OneToOne(mappedBy = "sellers")
+   private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public int getSellerRating() {
         return sellerRating;
