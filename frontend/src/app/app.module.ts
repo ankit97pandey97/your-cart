@@ -3,17 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedComponent } from './shared/shared.component';
 import { LoginComponent } from './common/login/login.component';
 import { RegistrationComponent } from './common/registration/registration.component';
-import { HomeComponent } from './main/home/home.component';
-import { SettingsComponent } from './main/settings/settings.component';
 import { NavBarComponent } from './common/nav-bar/nav-bar.component';
 import { MainComponent } from './main/main.component';
 import {MainModule} from "./main/main.module";
 import {CommonModule} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ReqInterceptorInterceptor} from "./services/req-interceptor.interceptor";
 
 @NgModule({
   declarations: [
@@ -31,7 +29,9 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,useClass:ReqInterceptorInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
