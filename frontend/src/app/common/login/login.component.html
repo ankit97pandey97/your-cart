@@ -1,14 +1,14 @@
 <div class="h-100 d-flex justify-content-center align-items-center">
   <form [formGroup]="loginFormGroup" #loginform="ngForm"  (ngSubmit)="submit()" class="form-control">
     <div>
-      <label for="userName" class="form-label">{{"userName"}}</label>
+      <label for="userName" class="form-label">{{"loginPage.userName"|translate}}</label>
       <input id="userName" class="" type="text" formControlName="userName">
       <div *ngIf="loginform.submitted && loginFormGroup.controls['userName'].errors?.['required']" class="text-danger">Username is required.</div>
       <div *ngIf="loginform.submitted && loginFormGroup.controls['userName'].errors?.['minlength']" class="text-danger">Username should have at least 4 characters.</div>
       <div *ngIf="loginform.submitted && loginFormGroup.controls['userName'].errors?.['maxlength']" class="text-danger">Username should have at less than 8 characters.</div>
     </div>
     <div>
-      <label for="password" class="form-label">{{"password"}}</label>
+      <label for="password" class="form-label">{{"loginPage.password"|translate}}</label>
       <input id="password" type="text" formControlName="password">
       <div *ngIf="loginform.submitted && loginFormGroup.controls['password'].errors?.['required']" class="text-danger">Password is required.</div>
       <div *ngIf="loginform.submitted && loginFormGroup.controls['password'].errors?.['minlength']" class="text-danger">Password should have at least 4 characters.</div>
