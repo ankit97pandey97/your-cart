@@ -23,7 +23,7 @@ public class User extends IdGeneratorClass{
     @Column(name = "pass_word")
     private String password;
 
-    @OneToOne()
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "role_id")
     private Roles role;
 

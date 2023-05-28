@@ -24,7 +24,12 @@ public class UserDao {
         Query qry = session.createQuery("from User");
         return qry.list();
     }
+    public User getUserByUserName(String username){
+        System.out.println("username");
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from User u where u.userName =:username",User.class).setParameter("username",username).uniqueResult();
 
+    }
     public void postUser(User user){
         Session session = sessionFactory.getCurrentSession();
         session.save(user);

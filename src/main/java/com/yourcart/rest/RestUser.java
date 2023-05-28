@@ -1,5 +1,6 @@
 package com.yourcart.rest;
 
+import com.yourcart.Entity.Roles;
 import com.yourcart.Entity.UserDetails;
 
 public class RestUser {
@@ -16,6 +17,16 @@ public class RestUser {
     private String lastName;
 
     private String password;
+
+    private Roles roles;
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
 
     private UserDetails userDetails;
 

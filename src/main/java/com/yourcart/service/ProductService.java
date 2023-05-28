@@ -38,6 +38,6 @@ public class ProductService {
         product.setProductName(restProductAndDetails.getRestProduct().getProductName());
         product.getProductDetails().setId(restProductAndDetails.getRestProductDetails().getId());
         product.getProductDetails().setProductCode(restProductAndDetails.getRestProductDetails().getProductCode());
-        
+
     }
 }
