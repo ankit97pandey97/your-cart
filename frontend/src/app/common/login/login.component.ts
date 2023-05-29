@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validator, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
     }
 
   )
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService,
+              public router:Router) { }
 
   ngOnInit(): void {
   }

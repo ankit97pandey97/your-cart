@@ -1,5 +1,6 @@
 <div class="h-100 d-flex justify-content-center align-items-center">
   <form [formGroup]="loginFormGroup" #loginform="ngForm"  (ngSubmit)="submit()" class="form-control">
+    <legend>{{"loginForm"|translate}}</legend>
     <div>
       <label for="userName" class="form-label">{{"loginPage.userName"|translate}}</label>
       <input id="userName" class="" type="text" formControlName="userName">
@@ -15,5 +16,6 @@
       <div *ngIf="loginform.submitted && loginFormGroup.controls['password'].errors?.['maxlength']" class="text-danger">Password should have at less than 8 characters.</div>
     </div>
     <button type="submit" class="btn btn-primary">{{"submit"}}</button>
+    <a href="sign-up">{{"notAUser"|translate}}</a>
   </form>
 </div>
